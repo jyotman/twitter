@@ -5,6 +5,7 @@
   border-radius: 0.5em;
   background-color:white;
   font-size: 1em;
+  word-break: break-all;
   padding: 5px;
 }
 
