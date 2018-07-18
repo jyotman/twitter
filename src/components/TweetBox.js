@@ -17,7 +17,7 @@ class TweetBox extends Component {
   onSubmit(event) {
     event.preventDefault();
     this.setState({ tweetBody: "" });
-    // this.props.onSend(this.state.chatInput);
+    this.props.onTweet(this.state.tweetBody);
   }
 
   render() {

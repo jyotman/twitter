@@ -1,6 +1,10 @@
 .TweetBox-inputbox {
   width: 40%;
   height: 5em;
+  display: block;
+  border: #d3d3d3 solid 0.1em;
+  border-radius: 1em;
+  margin:0 auto;
   background-color:white;
   font-size: 1em;
   padding: 5px;
@@ -9,8 +13,11 @@
 .TweetBox-tweetbutton {
   padding: 0.5em;
   font-size: 1em;
+  display: block;
   color: white;
-  margin: 2em;
+  margin: 0 auto;
+  margin-top: 0.6em;
+  margin-bottom: 1em;
   background-color: #1DA1F2;
 }
 
