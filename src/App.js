@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Tweets from "./components/Tweets";
+import Twitter from "./components/Twitter";
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Twitter Clone</h1>
         </header>
-		<Tweets/>
+        <Twitter />
       </div>
     );
   }
