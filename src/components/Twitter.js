@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Twitter.css";
 import TweetBox from "./TweetBox";
 import Tweet from "./Tweet";
+import util from '../util';
 
 class Twitter extends Component {
   constructor(props) {
@@ -24,13 +25,21 @@ class Twitter extends Component {
     }
   }
 
-  async tweetHandler(tweet) {
+  async tweetHandler(tweetMessage) {
     try {
-      const createdTweet = await postData('http://localhost:4000/tweet', { tweet });
-      const tweets = [createdTweet].concat(this.state.tweets);
+      const tweetMessages = util.splitMessage(tweetMessage);
+      const createdTweets = [];
+      for (const tweet of tweetMessages) {
+        const createdTweet = await postData('http://localhost:4000/tweet', { tweet });
+        createdTweets.unshift(createdTweet);
+      }
+      const tweets = createdTweets.concat(this.state.tweets);
       this.setState({ tweets });
     } catch (err) {
-      console.error(err);
+      if (err.message.includes('too long'))
+        alert(err.message);
+      else
+        console.error(err);
     }
   }
 
