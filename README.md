@@ -5,7 +5,8 @@ Basic interface to create, split and view tweets made using MERN stack.
 1. Make sure MongoDB is running locally and ports 3000 and 4000 are free.
 2. Clone the repo.
 3. `npm install`
-4. `npm start`
+4. `npm test`
+5. `npm start`
 
 This will automatically open a browser tab with the website. 
 Otherwise the website should be running on localhost:3000 and the backend server is running on localhost:4000
