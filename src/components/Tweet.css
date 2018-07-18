@@ -1,0 +1,19 @@
+.Tweet-tweet {
+  text-align: center;
+  margin: 1em auto;
+  width: 40%;
+  border-radius: 0.5em;
+  background-color:white;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.Tweet-date {
+  color: #657786;
+}
+
+@media screen and (max-width: 720px) {
+  .Tweet-tweet {
+    width: 80%; 
+  }
+}
