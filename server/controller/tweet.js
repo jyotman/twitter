@@ -4,9 +4,10 @@ const Tweet = require('../model/Tweet');
 
 exports.createTweet = async (req, res, next) => {
     try {
-        const tweet = new Tweet({ handle: req.ip, body: req.body.tweet });
+        const handle = req.headers.user || 'handle';
+        const tweet = new Tweet({ handle, body: req.body.tweet });
         await tweet.save();
-        res.json({ success: true });
+        res.json(tweet);
     } catch (err) {
         next(err);
     }
@@ -14,7 +15,8 @@ exports.createTweet = async (req, res, next) => {
 
 exports.getTweetsForUser = async (req, res, next) => {
     try {
-        const tweets = await Tweet.find({ handle: req.ip });
+        const handle = req.headers.user || 'handle';
+        const tweets = await Tweet.find({ handle }).sort({_id: -1});
         res.json(tweets);
     } catch (err) {
         next(err);

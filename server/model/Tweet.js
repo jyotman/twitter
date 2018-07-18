@@ -6,10 +6,8 @@ const mongoose = require('mongoose'),
 const Tweet = new Schema({
     handle: String,
     body: String,
-    createdAt: {type: Date, default: new Date()}
+    createdAt: {type: Date, default: Date.now}
 });
-
-// Tweet.index({ email: 1 }, { unique: true });
 
 const TweetModel = mongoose.model('Tweet', Tweet);
 
