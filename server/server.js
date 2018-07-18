@@ -24,11 +24,18 @@ function startServer() {
     app.use(bodyParser.json());
     app.use(morgan('dev'));
     app.use(errorHandler);
+    app.use(cors);
 
     app.get('/', (req, res) => res.send('Twitter API'));
 
     app.use('/tweet', tweet);
     app.listen(process.env.PORT || 4000, () => console.log('Twitter server listening on port 4000!'));
+}
+
+function cors(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 }
 
 function errorHandler(err, req, res, next) {
